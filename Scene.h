@@ -1,9 +1,11 @@
 #pragma once
 #include "EntityManager.h"
+#include "Action.h"
 class GameEngine;
 
 class Scene
 {
+    protected:
     GameEngine* m_game = nullptr;
     EntityManager m_entities;
     int currentFrame = 0;
@@ -13,16 +15,14 @@ class Scene
 
     public:
     Scene();
+    Scene(GameEngine * gameEngine);
     virtual void update() = 0;
-    //TODO: Action object as a parameter 
-    virtual void sDoAction() = 0;
+    virtual void sDoAction(Action a) = 0;
     virtual void sRender() = 0;
 
     void simulate(int simulationTimes);
-    //TODO: Action object as a parameter 
-    void soAction();
-    //TODO: Action object as a parameter 
-    void registerAction();
+    void soAction(Action a);
+    void registerAction(Action a);
 
 };
 

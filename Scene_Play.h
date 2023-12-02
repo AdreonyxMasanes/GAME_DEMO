@@ -11,8 +11,7 @@ class Scene_Play : Scene
     void sRender();
     void sCollisions();
     void sMovement();
-    //TODO: ACTION PARAMETER
-    void sDoAction();
+    void sDoAction(Action a);
 
     public:
     Scene_Play(std::string & level);
