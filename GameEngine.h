@@ -1,6 +1,5 @@
 #pragma once
 #include "GameEngine.h"
-#include "EntityManager.h"
 #include "Assets.h"
 #include <map>
 
@@ -15,12 +14,6 @@ class GameEngine
     void init(const std::string & assets);
     // Scene * currentScence
     
-    void setPaused(bool paused); 
-    
-
-    void spawnPlayer();
-    void spawnBullet(std::shared_ptr<Entity>  & entity, const Vec2 & mousePos);
-
     // void sMovement();
     // void sUserInput();
     // void sRender();
