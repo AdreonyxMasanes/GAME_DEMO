@@ -1,25 +1,18 @@
 #pragma once
-#include "GameEngine.h"
 #include "Assets.h"
+#include "Scene.h"
 #include <map>
 
 class GameEngine
 {
-    // std::map<std::string, Scene> m_scenes;
+    std::map<std::string, std::shared_ptr<Scene>> m_scenes;
     sf::RenderWindow m_window;
     Assets m_assets;
     std::string m_currentScene;
     bool m_running = true;
 
     void init(const std::string & assets);
-    // Scene * currentScence
-    
-    // void sMovement();
-    // void sUserInput();
-    // void sRender();
-    // void sCollison();
-    // void sLifespan();
-    // void sAnimation();
+    std::shared_ptr<Scene> currentScence();
     
     public:
     GameEngine(const std::string & assets);
@@ -27,7 +20,7 @@ class GameEngine
     void run();
     void quit();
     void sUserInput();
-    //void changeScene(Scene newScene)
+    void changeScene(const std::string sceneName, const std::shared_ptr<Scene> s);
     Assets & getAssets();
     sf::RenderWindow & getWindow();
 };

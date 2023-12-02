@@ -1,10 +1,10 @@
 #pragma once
-#include "GameEngine.h"
 #include "EntityManager.h"
+class GameEngine;
 
 class Scene
 {
-    GameEngine * m_game;
+    GameEngine* m_game = nullptr;
     EntityManager m_entities;
     int currentFrame = 0;
     std::map<int, std::string> actionMap;
@@ -12,6 +12,7 @@ class Scene
     bool m_hasEnded = false;
 
     public:
+    Scene();
     virtual void update() = 0;
     //TODO: Action object as a parameter 
     virtual void sDoAction() = 0;
@@ -19,7 +20,7 @@ class Scene
 
     void simulate(int simulationTimes);
     //TODO: Action object as a parameter 
-    void doAction();
+    void soAction();
     //TODO: Action object as a parameter 
     void registerAction();
 
